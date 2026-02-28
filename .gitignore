@@ -1,0 +1,12 @@
+node_modules
+dist
+.env
+exports/*.csv
+build_errors.txt
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea
+.vscode

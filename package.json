@@ -1,0 +1,36 @@
+{
+  "name": "csvprogresstracking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "test": "npx ts-node tests/verify.ts && npx ts-node tests/concurrency.ts && npx ts-node tests/cancellation.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.5",
+    "compression": "^1.8.1",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "fast-csv": "^4.3.6",
+    "pg": "^8.18.0",
+    "pg-query-stream": "^4.12.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.0",
+    "@types/pg": "^8.16.0",
+    "@types/pg-query-stream": "^1.0.3",
+    "@types/uuid": "^10.0.0",
+    "ts-node-dev": "^2.0.0"
+  }
+}
