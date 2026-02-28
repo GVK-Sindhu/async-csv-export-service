@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Export Pro | Live Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-glow"></div>
+    <main class="dashboard-container">
+        <header class="hero">
+            <div class="badge">Enterprise Ready</div>
+            <h1>CSV Data <span class="gradient-text">Export Service</span></h1>
+            <p class="subtitle">Scalable, streaming-first export engine with real-time backpressure monitoring.</p>
+        </header>
+
+        <section class="controls-card glass">
+            <div class="card-header">
+                <h2>Initiate Export</h2>
+                <div class="status-indicator">
+                    <span class="dot"></span> Database Ready
+                </div>
+            </div>
+            <div class="export-form">
+                <div class="form-group">
+                    <label>Country Code</label>
+                    <select id="country_code">
+                        <option value="">All Countries</option>
+                        <option value="US">United States (US)</option>
+                        <option value="GB">United Kingdom (GB)</option>
+                        <option value="DE">Germany (DE)</option>
+                        <option value="IN">India (IN)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Subscription Tier</label>
+                    <select id="subscription_tier">
+                        <option value="">All Tiers</option>
+                        <option value="free">Free</option>
+                        <option value="basic">Basic</option>
+                        <option value="premium">Premium</option>
+                        <option value="enterprise">Enterprise</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Min LTV ($)</label>
+                    <input type="number" id="min_ltv" placeholder="0.00" step="100">
+                </div>
+                <div class="form-actions">
+                    <button id="start-export" class="btn btn-primary">
+                        <span class="btn-text">Start Export</span>
+                        <div class="btn-loader"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="jobs-section">
+            <div class="section-header">
+                <h3>Active Export Jobs</h3>
+                <span id="job-count" class="job-count-badge">0</span>
+            </div>
+            <div id="jobs-list" class="jobs-list">
+                <!-- Jobs will be injected here -->
+                <div class="empty-state">
+                    <div class="empty-icon">📂</div>
+                    <p>No active exports. Start one above to see the magic.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="service-stats glass">
+            <div class="stat">
+                <span class="stat-label">RAM Usage</span>
+                <span class="stat-value">&lt; 150MB</span>
+                <div class="stat-progress"><div class="stat-bar" style="width: 40%"></div></div>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Throughput</span>
+                <span class="stat-value">50k rows/s</span>
+                <div class="stat-progress"><div class="stat-bar" style="width: 85%"></div></div>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Architecture</span>
+                <span class="stat-value">Async Streaming</span>
+            </div>
+        </footer>
+    </main>
+
+    <template id="job-template">
+        <div class="job-card glass">
+            <div class="job-info">
+                <div class="job-main">
+                    <span class="job-id">ID: </span>
+                    <span class="job-status-badge">pending</span>
+                </div>
+                <div class="job-actions">
+                    <button class="btn-icon btn-cancel" title="Cancel Job">✕</button>
+                    <a href="#" class="btn-icon btn-download hidden" title="Download CSV">⬇</a>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span class="progress-text">0%</span>
+                    <span class="processed-rows">0 rows</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+            <div class="job-error hidden"></div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
